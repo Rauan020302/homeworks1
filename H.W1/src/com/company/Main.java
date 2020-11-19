@@ -10,8 +10,8 @@ public class Main {
         System.out.println("EX. A");
         studentOne.name = "Sam";
         studentOne.age = 19;
-        studentOne.level = 4;
-        studentOne.typeOfTraining = "Programming";
+        studentOne.level = 4; // курс
+        studentOne.typeOfTraining = "Programming"; // направление обучения
         System.out.println("name:" + studentOne.name + " age:" + studentOne.age + " level:" + studentOne.level + " type of training:" + studentOne.typeOfTraining );
 
         studentTwo.name = "Tom";
@@ -30,13 +30,13 @@ public class Main {
 
         //EX.B
 
-        Club clubOne = new Club();
+        Club clubOne = new Club();//футбольный клуб
         Club clubTwo = new Club();
         Club clubThree = new Club();
-        clubOne.name = "Bayern";
-        clubOne.budget = 24530000.325;
-        clubOne.numOfPlayers = 24;
-        clubOne.coach = "Flick";
+        clubOne.name = "Bayern"; //название команды
+        clubOne.budget = 24530000.325; //бюджет
+        clubOne.numOfPlayers = 24; //количество игроков
+        clubOne.coach = "Flick"; //тренер
         System.out.println("Name:" + clubOne.name + " budget:" + clubOne.budget + " number of players:" + clubOne.numOfPlayers + " coach:" + clubOne.coach);
 
         clubOne.name = "Barcelona";
@@ -81,6 +81,9 @@ public class Main {
         //personOne.age = 14;
 
         //· 7. Как получить определенное свойства объекта?
+
+        //person.name
+        //person.age
 
 
 
