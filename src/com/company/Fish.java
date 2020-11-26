@@ -1,6 +1,6 @@
 package com.company;
 
-public class Dog {
+public class Fish {
     int age;
     String type;
     String color;
@@ -11,7 +11,6 @@ public class Dog {
             return;
         }
         age = a;
-
     }
 
     public void setType(String t){
@@ -20,6 +19,7 @@ public class Dog {
     public void setColor(String c){
         color = c;
     }
+
     public int getAge(){return age;}
     public String getType(){return type;}
     public String getColor(){return color;}
