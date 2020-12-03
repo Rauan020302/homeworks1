@@ -2,9 +2,9 @@ package com.company;
 
 public class Farm {
     String address;
-    Cow[] cow;
-    Sheep[] sheep;
-    Horse[]horse;
+    Cow[] cows;
+    Sheep[] sheeps;
+    Horse[] horses;
     String fullName;
 
     public Farm(){
@@ -13,50 +13,43 @@ public class Farm {
 
 
 
-    public Farm(String address,int numOfCows,int  numOfSheeps, int numOfHorses, String fullName) {
+    public Farm(String address, Cow[] cows,Sheep[] sheeps, Horse[] horses, String fullName) {
         this.address = address;
-        this.cow = new Cow[numOfCows];
-        this.sheep = new Sheep[numOfSheeps];
-        this.horse = new Horse[numOfHorses];
+        this.cows = cows;
+        this.sheeps = sheeps;
+        this.horses = horses;
         this.fullName = fullName;
     }
 
-    public void printInfo(){
+    @Override
+    public String toString(){
 
-        System.out.println("Farm: ");
-        System.out.println("address - " + address);
-        for(int i = 0; i < cow.length; i++){
-            if(cow[i] != null){
-                cow[i].printInfo();
-            }
+        String result = ("Farm: " + address + ",name: " + fullName);
+
+        for(Cow cow : cows){
+            cow.printInfo();
         }
-        for(int i = 0; i < horse.length; i++){
-            if(horse[i] != null){
-                horse[i].printInfo();
-            }
+        for(Sheep sheep : sheeps){
+            sheep.printInfo();
         }
-        for(int i = 0; i < sheep.length; i++){
-            if(sheep[i] != null){
-                sheep[i].printInfo();
-            }
+        for(Horse horse : horses){
+            horse.printInfo();
         }
-        System.out.println("fullname - " + fullName);
-
-
-
+        return result;
 
     }
 
-    public void setCow(Cow[] cow) {
-        this.cow = cow;
+
+    public void setCows(Cow[] cows) {
+        this.cows = cows;
     }
 
-    public void setSheep(Sheep[] sheep) {
-        this.sheep = sheep;
+    public void setSheeps(Sheep[] sheeps) {
+        this.sheeps = sheeps;
     }
 
-    public void setHorse(Horse[] horse) {
-        this.horse = horse;
+    public void setHorses(Horse[] horses) {
+        this.horses = horses;
     }
 
     public String getAddress() {
@@ -67,75 +60,18 @@ public class Farm {
         this.address = address;
     }
 
-    public Cow[] getCow() {
-        return cow;
+    public Cow[] getCows() {
+        return cows;
     }
 
-    public boolean addCow(Cow cow){
-        for(int i = 0;i < this.cow.length;i++){
-            if(this.cow[i] == null){
-                this.cow[i] = cow;
-                return true;
-            }
-        }
-        return false;
+    public Horse[] getHorses() {
+        return horses;
     }
 
-    public boolean deleteCow(int indexOfCow){
-        if(indexOfCow >= 0 && indexOfCow < cow.length){
-            cow[indexOfCow] = null;
-            return true;
-        }
-        return false;
+    public Sheep[] getSheeps() {
+        return sheeps;
     }
 
-
-
-    public Sheep[] getSheep() {
-        return sheep;
-    }
-
-    public boolean addSheep(Sheep sheep){
-        for(int i = 0;i < this.sheep.length;i++){
-            if(this.sheep[i] == null){
-                this.sheep[i] = sheep;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean deleteSheep(int indexOfSheep){
-        if(indexOfSheep >= 0 && indexOfSheep < sheep.length){
-            sheep[indexOfSheep] = null;
-            return true;
-        }
-        return false;
-    }
-
-
-    public Horse[] getHorse() {
-        return horse;
-    }
-
-
-    public boolean addHorse(Horse horse){
-        for(int i = 0;i < this.horse.length;i++){
-            if(this.horse[i] == null){
-                this.horse[i] = horse;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean deleteHorse(int indexOfHorse){
-        if(indexOfHorse >= 0 && indexOfHorse < horse.length){
-            horse[indexOfHorse] = null;
-            return true;
-        }
-        return false;
-    }
 
     public String getFullName() {
         return fullName;
