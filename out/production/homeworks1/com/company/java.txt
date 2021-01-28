@@ -1,0 +1,26 @@
+ try {
+            FileReader fileReader = new FileReader("src/Main.java");
+            Scanner sc = new Scanner(fileReader);
+            File file = new File("java.txt");
+            FileWriter fileWriter = new FileWriter(file);
+            while (sc.hasNextLine()) {
+                String str = sc.nextLine();
+                System.out.println(str);
+                fileWriter.write(str);
+
+            }
+            fileWriter.close();
+            fileReader.close();
+
+            if (file.length() > 100) {
+                throw new IllegalStateException(file.length() + " ");
+
+            }
+
+        }catch (FileNotFoundException e) {
+            System.out.println("Файл не доступен");
+        }catch (IllegalStateException e){
+            System.out.println("Код слишком большой, его размер: " + e.getMessage());
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
