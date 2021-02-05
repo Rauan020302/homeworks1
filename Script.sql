@@ -1,4 +1,3 @@
-
 --task A
 
 insert into visitors(visitors_full_name,visitors_date_of_birth,visitors_gender)
@@ -79,5 +78,56 @@ join group1 g on s.student_group = s.student_id
 
 
 --task C
+
+create table academy(
+    academy_id Serial primary key,
+    academy_name VARCHAR(20) not null
+)
+
+create table course(
+    course_id serial primary key,
+    course_name VARCHAR(20) not null,
+    course_academy INTEGER references academy(academy_id)
+)
+
+create table head(
+    head_id serial primary key,
+    head_name VARCHAR(30) not null,
+    head_course INTEGER references course(course_id)
+)
+
+create table mentor(
+    mentor_id serial primary key,
+    mentor_name VARCHAR(30) not null,
+    mentor_course INTEGER references course(course_id)
+)
+
+create table reviewer(
+    reviewer_id serial primary key,
+    reviewer_name VARCHAR(30) not null,
+    reviewer_course INTEGER references course(course_id)
+)
+
+create table groupes(
+   groupes_id serial primary key,
+   groupes_name VARCHAR(20) not null unique,
+   groupes_course INTEGER references course(course_id)
+)
+
+create table students(
+   students_id serial primary key,
+   students_name VARCHAR(30) not null,
+   students_groupes INTEGER references groupes(groupes_id)
+)
+ 
+create table hw(
+   hw_id serial primary key,
+   hw_number INTEGER not null unique,
+   hw_course INTEGER references course(course_id)
+)
+
+
+
+
 
 
