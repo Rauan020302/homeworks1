@@ -1,0 +1,40 @@
+select *
+from customer c
+where country in('Spain','Italy','Germany','France')
+order by country 
+
+select * 
+from customer c 
+where first_name like 'Jo%'
+
+select * 
+from customer c 
+where first_name like '%a' and char_length(first_name) = 4; 
+
+select count(id),country
+from customer 
+group by country
+order by country 
+
+select customer_id ,sum(total_amount), count(total_amount)
+from orders o 
+group by customer_id 
+order by sum(total_amount)
+ 
+select customer_id ,sum(total_amount), count(total_amount)
+from orders o 
+group by customer_id 
+having count(total_amount)> 20
+
+select count(city),country,city
+from customer c 
+group by country,city
+
+select o.id order_id,c.first_name ,c.last_name ,
+c.city ,p.product_name ,p.unit_price ,s.company_name 
+from orders o 
+join customer c on c.id = o.customer_id 
+join order_item oi on oi.order_id = o.id 
+join product p on p.id = oi.product_id 
+join supplier s on s.id = p.supplier_id 
+ 
