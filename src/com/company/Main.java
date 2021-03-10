@@ -26,6 +26,7 @@ public class Main {
         HashSet<City> hashSet = new HashSet<>();
         TreeSet<City> treeSet = new TreeSet<>();
         ArrayList<City> arrayList = new ArrayList<>();
+
         arrayList.add(city1);
         arrayList.add(city2);
         arrayList.add(city3);
@@ -38,31 +39,36 @@ public class Main {
         arrayList.add(city10);
         System.out.println(arrayList);
 
-        hashSet.add(city2);
-        hashSet.add(city3);
-        hashSet.add(city6);
-        hashSet.add(city8);
+        for (City city : arrayList){
+            if (city.getCode()%2==0){
+                hashSet.add(city);
+            }else{
+                treeSet.add(city);
+            }
+        }
+        System.out.println("--------------------------");
+
         System.out.println(hashSet);
 
-        treeSet.add(city1);
-        treeSet.add(city4);
-        treeSet.add(city5);
-        treeSet.add(city7);
-        treeSet.add(city9);
-        treeSet.add(city10);
+        System.out.println(treeSet);
+
+        System.out.println("---------------------------");
+
+
+
         Iterator<City> it1 = treeSet.descendingIterator();
         while (it1.hasNext()){
             System.out.println(it1.next());
         }
-
+        System.out.println("---------------------------");
 
         Iterator<City> it2 = treeSet.iterator();
         while (it2.hasNext()){
             City city = it2.next();
             if (city.getName().length() > 5){
                 it2.remove();
-                System.out.println(it2.next());
             }
+            System.out.println(it2.next());
         }
 
 
