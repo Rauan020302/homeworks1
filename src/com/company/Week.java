@@ -3,27 +3,15 @@ package com.company;
 import java.util.Objects;
 
 public class Week {
-    private String Monday;
-    private String Tuesday;
-    private String Wednesday;
-    private String Thursday;
-    private String Friday;
-    private String Saturday;
-    private String Sunday;
+    private int id;
+    private String name;
 
     public Week(){
 
     }
-
-
-    public Week(String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday) {
-        Monday = monday;
-        Tuesday = tuesday;
-        Wednesday = wednesday;
-        Thursday = thursday;
-        Friday = friday;
-        Saturday = saturday;
-        Sunday = sunday;
+    public Week(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     @Override
@@ -31,73 +19,36 @@ public class Week {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Week week = (Week) o;
-        return Objects.equals(Monday, week.Monday) &&
-                Objects.equals(Tuesday, week.Tuesday) &&
-                Objects.equals(Wednesday, week.Wednesday) &&
-                Objects.equals(Thursday, week.Thursday) &&
-                Objects.equals(Friday, week.Friday) &&
-                Objects.equals(Saturday, week.Saturday) &&
-                Objects.equals(Sunday, week.Sunday);
+        return id == week.id &&
+                Objects.equals(name, week.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday);
+        return getId();
     }
 
-    public String getMonday() {
-        return Monday;
+    @Override
+    public String toString() {
+        return "Week{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 
-    public void setMonday(String monday) {
-        Monday = monday;
+    public int getId() {
+        return id;
     }
 
-    public String getTuesday() {
-        return Tuesday;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setTuesday(String tuesday) {
-        Tuesday = tuesday;
+    public String getName() {
+        return name;
     }
 
-    public String getWednesday() {
-        return Wednesday;
-    }
-
-    public void setWednesday(String wednesday) {
-        Wednesday = wednesday;
-    }
-
-    public String getThursday() {
-        return Thursday;
-    }
-
-    public void setThursday(String thursday) {
-        Thursday = thursday;
-    }
-
-    public String getFriday() {
-        return Friday;
-    }
-
-    public void setFriday(String friday) {
-        Friday = friday;
-    }
-
-    public String getSaturday() {
-        return Saturday;
-    }
-
-    public void setSaturday(String saturday) {
-        Saturday = saturday;
-    }
-
-    public String getSunday() {
-        return Sunday;
-    }
-
-    public void setSunday(String sunday) {
-        Sunday = sunday;
+    public void setName(String name) {
+        this.name = name;
     }
 }
