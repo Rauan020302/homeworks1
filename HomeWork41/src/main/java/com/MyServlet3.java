@@ -10,7 +10,8 @@ public class MyServlet3 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getRequestDispatcher("google.com").forward(req,resp);//не смог сделать
+        //req.getRequestDispatcher("google.com").forward(req,resp);//не смог сделать
+        resp.sendRedirect("https://google.com");
 
     }
 }
